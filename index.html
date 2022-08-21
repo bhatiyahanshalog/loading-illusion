@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading...</title>
+    <style>
+        .line-8 {
+            width: 60px;
+            height: 60px;
+            padding: 10px;
+            display: grid;
+            color: #046D8B;
+        }
+
+        .line-8,
+        .line-8:before,
+        .line-8:after {
+            --c: linear-gradient(currentColor 0 0);
+            background: var(--c), var(--c), var(--c), var(--c);
+            background-repeat: no-repeat;
+            animation: l8-1 1.5s infinite cubic-bezier(0, 0, 1, 1), l8-2 1.5s infinite;
+        }
+
+        .line-8:before,
+        .line-8:after {
+            content: "";
+            grid-area: 1/1;
+            animation-timing-function: cubic-bezier(0, 0.2, 1, 1), linear;
+        }
+
+        .line-8:after {
+            margin: 10px;
+            animation-timing-function: cubic-bezier(0, 0.4, 1, 1), linear;
+        }
+
+        @keyframes l8-1 {
+
+            0%,
+            10% {
+                background-size: 0 4px, 4px 0
+            }
+
+            40%,
+            60% {
+                background-size: 100% 4px, 4px 100%
+            }
+
+            90%,
+            100% {
+                background-size: 0 4px, 4px 0
+            }
+        }
+
+        @keyframes l8-2 {
+
+            0%,
+            49.9% {
+                background-position: 0 0, 0 0, 100% 100%, 100% 100%
+            }
+
+            50%,
+            100% {
+                background-position: 100% 0, 0 100%, 0 100%, 100% 0
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="line-8"></div>
+</body>
+
+</html>
